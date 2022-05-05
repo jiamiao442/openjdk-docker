@@ -34,7 +34,7 @@ all_jvms="hotspot openj9"
 
 # Supported arches for each of the os_families
 os_families="linux alpine-linux windows"
-linux_arches="aarch64 x86_64"
+linux_arches="x86_64"
 alpine_linux_arches="x86_64"
 windows_arches="windows-amd windows-nano"
 
@@ -55,7 +55,7 @@ PR_TEST_OSES="ubuntu alpine ubi"
 runtype="build"
 
 # Current JVM versions supported
-export supported_versions="8 11 15 16"
+export supported_versions="8 11 16"
 export latest_version="16"
 
 # Current builds supported
