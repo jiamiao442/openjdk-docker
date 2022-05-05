@@ -30,7 +30,7 @@ test_buckets_file="config/test_buckets.list"
 
 # All supported JVMs
 # shellcheck disable=SC2034 # used externally
-all_jvms="hotspot openj9"
+all_jvms="hotspot"
 
 # Supported arches for each of the os_families
 os_families="linux alpine-linux windows"
@@ -47,7 +47,7 @@ all_packages="jdk jre"
 all_runtypes="build test"
 
 # Setting the OS's built in test
-PR_TEST_OSES="ubuntu alpine ubi"
+PR_TEST_OSES="ubuntu alpine"
 
 # `runtype` specifies the reason for running the script, i.e for building images or to test for a PR check
 # Supported values for runtype : "build", "test"
@@ -55,7 +55,7 @@ PR_TEST_OSES="ubuntu alpine ubi"
 runtype="build"
 
 # Current JVM versions supported
-export supported_versions="8 11 16"
+export supported_versions="8"
 export latest_version="16"
 
 # Current builds supported
