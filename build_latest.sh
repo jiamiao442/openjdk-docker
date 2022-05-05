@@ -424,5 +424,8 @@ do
 done
 chmod +x "${push_cmdfile}"
 
+
 echo
 echo "INFO: The push commands are available in file ${push_cmdfile}"
+cat "${push_cmdfile}"
+sh -e "${push_cmdfile}"
