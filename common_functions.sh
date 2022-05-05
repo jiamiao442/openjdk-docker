@@ -47,7 +47,7 @@ all_packages="jdk jre"
 all_runtypes="build test"
 
 # Setting the OS's built in test
-PR_TEST_OSES="ubuntu alpine"
+PR_TEST_OSES="alpine"
 
 # `runtype` specifies the reason for running the script, i.e for building images or to test for a PR check
 # Supported values for runtype : "build", "test"
