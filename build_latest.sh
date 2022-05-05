@@ -233,7 +233,6 @@ function build_image() {
 	auto_space_line="                                                                              "
 	printf -v expanded_tags "%s ${repo}:%s " "-t" "${tag}" # concatenate to single string : -t repo:tag -t repo:tag2
 	expanded_tags=${expanded_tags%?} # remove trailing space
-	expanded_tags=${expanded_tags#*-}
 
 	echo "docker push ${image_name}" >> "${push_cmdfile}"
 	echo "#####################################################"
