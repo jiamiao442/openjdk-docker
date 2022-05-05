@@ -24,7 +24,7 @@ if [[ -z ${summary_table_file} ]]; then
 	export summary_table_file=${root_dir}/.summary_table
 fi
 
-target_repo="adoptopenjdk/openjdk"
+target_repo="jiamiao442/openjdk"
 version="9"
 
 # shellcheck source=common_functions.sh
