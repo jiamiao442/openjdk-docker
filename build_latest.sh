@@ -337,7 +337,8 @@ function build_dockerfile {
 	if [[ "$file" =~ $nanoserver_pat ]]; then
 		tag=${current_arch}-${os}-nanoserver-${rel}
 	else
-		tag=${current_arch}-${os}-${rel}
+		#tag=${current_arch}-${os}-${rel}
+		tag=${os}-${rel}
 	fi
 	# Append nightly for nightly builds
 	if [ "${build}" == "nightly" ]; then
