@@ -168,8 +168,8 @@ print_lang_locale() {
 	local os=$2
 	if [ "$os" != "windows" ]; then
 		cat >> "$1" <<-EOI
-	#ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
-        ENV LANG='zh_CN.UTF-8' LANGUAGE='zh_CN:zh' LC_ALL='zh_CN.UTF-8'
+	ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+        
 	ENV TIME_ZONE Asia/Shanghai
 
 	EOI
@@ -181,8 +181,8 @@ print_ubuntu_pkg() {
 	cat >> "$1" <<'EOI'
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl ca-certificates fontconfig ttf-dejavu locales \
-    && echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen \
-    && locale-gen zh_CN.UTF-8 \
+    && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
+    && locale-gen en_US.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
 EOI
 }
