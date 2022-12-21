@@ -168,7 +168,9 @@ print_lang_locale() {
 	local os=$2
 	if [ "$os" != "windows" ]; then
 		cat >> "$1" <<-EOI
-	ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+	#ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
+        ENV LANG='zh_CN.UTF-8' LANGUAGE='zh_CN:zh' LC_ALL='zh_CN.UTF-8'
+	ENV TIME_ZONE Asia/Shanghai
 
 	EOI
 	fi
@@ -216,6 +218,8 @@ print_alpine_pkg() {
 print_alpine_glibc_pkg() {
 	cat >> "$1" <<'EOI'
 RUN apk add --no-cache tzdata --virtual .build-deps curl binutils zstd \
+    && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
+    && echo "${TIME_ZONE}" > /etc/timezone \
     && GLIBC_VER="2.33-r0" \
     && ALPINE_GLIBC_REPO="https://github.com/sgerrand/alpine-pkg-glibc/releases/download" \
     && GCC_LIBS_URL="https://archive.archlinux.org/packages/g/gcc-libs/gcc-libs-10.1.0-2-x86_64.pkg.tar.zst" \
