@@ -181,8 +181,8 @@ print_ubuntu_pkg() {
 	cat >> "$1" <<'EOI'
 RUN apt-get update \
     && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl ca-certificates fontconfig locales \
-    && echo "en_US.UTF-8 UTF-8" >> /etc/locale.gen \
-    && locale-gen en_US.UTF-8 \
+    && echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen \
+    && locale-gen zh_CN.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
 EOI
 }
