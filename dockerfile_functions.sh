@@ -180,7 +180,7 @@ print_lang_locale() {
 print_ubuntu_pkg() {
 	cat >> "$1" <<'EOI'
 RUN apt-get update \
-    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl ca-certificates fontconfig locales \
+    && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends tzdata curl ca-certificates fontconfig ttf-dejavu locales \
     && echo "zh_CN.UTF-8 UTF-8" >> /etc/locale.gen \
     && locale-gen zh_CN.UTF-8 \
     && rm -rf /var/lib/apt/lists/*
@@ -217,8 +217,8 @@ print_alpine_pkg() {
 
 print_alpine_glibc_pkg() {
 	cat >> "$1" <<'EOI'
-RUN apk add --no-cache tzdata --virtual .build-deps curl binutils zstd \
-    && cp /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
+RUN apk add --no-cache tzdata --virtual .build-deps curl binutils zstd fontconfig ttf-dejavu \
+    && ln -snf /usr/share/zoneinfo/${TIME_ZONE} /etc/localtime \
     && echo "${TIME_ZONE}" > /etc/timezone \
     && GLIBC_VER="2.33-r0" \
     && ALPINE_GLIBC_REPO="https://github.com/sgerrand/alpine-pkg-glibc/releases/download" \
