@@ -234,7 +234,6 @@ RUN apk add --no-cache tzdata --virtual .build-deps curl binutils zstd fontconfi
     && curl -LfsS ${ALPINE_GLIBC_REPO}/${GLIBC_VER}/glibc-${GLIBC_VER}.apk > /tmp/glibc-${GLIBC_VER}.apk \
     && mv /etc/nsswitch.conf /etc/nsswitch.conf.bak \
     && apk add --no-cache /tmp/glibc-${GLIBC_VER}.apk \
-    && mv /etc/nsswitch.conf.bak /etc/nsswitch.conf  \
     && curl -LfsS ${ALPINE_GLIBC_REPO}/${GLIBC_VER}/glibc-bin-${GLIBC_VER}.apk > /tmp/glibc-bin-${GLIBC_VER}.apk \
     && apk add --no-cache /tmp/glibc-bin-${GLIBC_VER}.apk \
     && curl -LfsS ${ALPINE_GLIBC_REPO}/${GLIBC_VER}/glibc-i18n-${GLIBC_VER}.apk > /tmp/glibc-i18n-${GLIBC_VER}.apk \
