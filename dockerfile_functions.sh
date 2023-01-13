@@ -44,7 +44,7 @@ print_ubuntu_ver() {
 	if [ ${current_arch} == "armv7l" ]; then
 		os_version="18.04"
 	else
-		os_version="20.04"
+		os_version="22.04"
 	fi
 
 	cat >> "$1" <<-EOI
